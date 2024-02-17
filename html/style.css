@@ -1,0 +1,62 @@
+.progress-container {
+    position: relative;
+    width: 15%;
+    background-color: #0000006b;
+    position: fixed;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 1px;
+    padding: 5px;
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.5); /* Sombra difuminada */
+    justify-content: center;
+    text-align: center;
+    animation: slideIn 0.5s forwards; /* Animación para aparecer desde abajo */
+}
+
+.progress-container.hide {
+    animation: slideOut 0.5s forwards; /* Animación para desaparecer hacia abajo */
+}
+  
+.progress-text {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+    top: -40px; /* ajusta la posición vertical del texto */
+    text-transform: uppercase;
+    font-family: "Bebas Neue", sans-serif;  
+    font-weight: 100;
+    font-style:normal;
+    color: #ffffff; /* Color del texto */
+    text-shadow: 0 0 3px white;
+    font-size: 30px;
+    line-height: 30px; /* Igual al alto de la barra de progreso */
+}
+  
+.progress-bar {
+    width: 0%;
+    height: 30px;
+    background-color: #ffffff;
+    border-radius: 1px;
+    box-shadow: 0 0 5px white;
+}
+  
+  
+@keyframes slideIn {
+    from {
+        top: 120%;
+    }
+    to {
+        top: 95%;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        top: 95%;
+    }
+    to {
+        top: 120%;
+    }
+}
