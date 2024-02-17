@@ -19,32 +19,26 @@ function newProgressBar() {
     var progressContainer = document.getElementById("progresscontainer");
     var width = 0;
     var id;
+    var checkInterval = setInterval(checkContainerPosition, 100);
     elem.style.removeProperty('width');
-    progressContainer.classList.remove('hide'); // Aparecer desde abajo
-    
-    // Función para iniciar la animación de la barra de progreso
+    progressContainer.classList.remove('hide');
     function startProgressBar() {
       id = setInterval(frame, animationTimeLong * 0.6);
     }
 
-    // Función para comprobar si el contenedor ha alcanzado la posición deseada
     function checkContainerPosition() {
       var containerTop = progressContainer.getBoundingClientRect().top;
       if (containerTop <= window.innerHeight * 0.95) {
-        startProgressBar(); // Iniciar la animación de la barra de progreso
-        clearInterval(checkInterval); // Detener la comprobación continua
+        startProgressBar();
+        clearInterval(checkInterval);
       }
     }
-
-    // Comprobar continuamente si el contenedor ha alcanzado la posición deseada
-    var checkInterval = setInterval(checkContainerPosition, 100);
-
     function frame() {
       if (isProgressBarActive) {
         if (width >= 100) {
           clearInterval(id);
           isProgressBarActive = false;
-          progressContainer.classList.add('hide'); // Desaparecer hacia abajo
+          progressContainer.classList.add('hide');
         } else if (width < 100) {
           if (width < 20) {
             width = width + 0.5;

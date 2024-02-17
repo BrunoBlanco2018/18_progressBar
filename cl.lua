@@ -7,6 +7,4 @@ function ShowUI(time, text)
     })
 end
 
---time = 10 // 1 seconds
-
 exports('ShowUI', ShowUI)
